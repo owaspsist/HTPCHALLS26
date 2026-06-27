@@ -1,0 +1,5 @@
+GPay or Go Home
+
+The so-called "mastermind" behind the Black Market Shell is literally broke and begging for ₹500 on GPay so his mom doesn't cut off his internet. He guarantees his payment gateway is "unhackable." Let's see if he actually verified his checkout logic, or if he's just blindly trusting whatever we hand him. Don't send this guy a dime—take his flag for free.
+
+solve using burpsuite

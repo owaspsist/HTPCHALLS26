@@ -1,0 +1,19 @@
+There’s a wall of text screaming for attention… paragraphs, noise, chaos everywhere.
+But hidden deep inside, one shy little string is minding its own business, hoping you don’t notice it.
+
+Unfortunately for it… you’re here.
+auother- BLU3KY
+
+What is it hiding?
+
+https://holloway.nz/steg/
+
+visit this website
+
+paste it
+
+ctftwitter_had_this_bug
+
+
+FLAG
+ctf{twitter_had_this_bug}

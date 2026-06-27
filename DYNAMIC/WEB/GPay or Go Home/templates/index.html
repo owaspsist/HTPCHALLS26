@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Underground Shop</title>
+    <style>
+        :root {
+            --bg-color: #0d0d11;
+            --card-bg: #16161f;
+            --accent-green: #00ff66;
+            --text-main: #ffffff;
+            --text-muted: #8b8b9f;
+            --border-color: #262636;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+
+        .item-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        .item-price {
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .buy-btn {
+            background: transparent;
+            border: 2px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .buy-btn:hover {
+            background: var(--accent-green);
+            color: var(--bg-color);
+        }
+
+        .troll-panel {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            width: 100%;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .qr-code {
+            width: 110px;
+            height: 110px;
+            margin: 12px auto;
+            background: #fff;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        #terminal-response {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 600px;
+            background: #000;
+            border-radius: 6px;
+            border: 1px solid #333;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Black Market Shell</h1>
+        <p class="subtitle">Bypass the checkout logic or pay the admin directly.</p>
+    </header>
+
+    <div class="market-grid">
+        {% for item in items %}
+        <div class="item-card">
+            <div class="item-icon">{{ item.icon }}</div>
+            <div class="item-title">{{ item.name }}</div>
+            <div class="item-price">₹{{ item.price }}</div>
+            
+            <form action="/checkout" method="POST" class="purchase-form">
+                <input type="hidden" name="item_id" value="{{ item.id }}">
+                <input type="hidden" name="price" value="{{ item.price }}">
+                <button type="submit" class="buy-btn">Execute Purchase</button>
+            </form>
+
+            {% if item.id == 4 %}
+            <div class="troll-panel">
+                <div>PAY ME 500. Ill come solve it for you.</div>
+                <img class="qr-code" src="{{ url_for('static', filename='gpay.jpeg') }}" alt="GPay QR">
+                <div>Ping admin with receipt to get points manually 😉</div>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="terminal-response"></div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

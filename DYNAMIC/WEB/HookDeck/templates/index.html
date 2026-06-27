@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HookDeck Portal</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <div class="navbar-dock">
+        <span class="dock-title">HookDeck Integration Pipeline</span>
+    </div>
+
+    <div class="main-viewport">
+        <div class="panel">
+            <h2>Custom Integration Payload Setup</h2>
+            <div class="subtitle">Format and preview custom markup templates for webhook messaging layout structures.</div>
+            
+            <form action="/deploy" method="POST">
+                <textarea name="markup" class="input-area" placeholder="<div class='custom-card'>&#10;  &#10;</div>"></textarea>
+                <button type="submit" class="action-btn">Deploy Configuration</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

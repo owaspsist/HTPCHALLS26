@@ -1,0 +1,18 @@
+[SYSTEM BUJJI LOGS]...
+[ALERT] We intercepted an encrypted data packet labeled "DORAVIN_PAYANAM 1". 
+
+Biujji and Maps have gone completely offline. Dora was left stranded in a high-density tropical canopy tracking a high-value physical asset before the comms went dark. Her last telemetry broadcast captured a single visual file from a wooden boardwalk, but no GPS data survived the transmission.
+
+Your mission is to step into the tracking terminal, reverse-engineer her physical location from the foliage profile and path markers, and lock down her coordinates. 
+
+The tracking system requires absolute precision. If you are not within the tight 10-meter operational radius, the connection will drop with zero telemetry assistance.
+
+Where in the world is Dora?
+
+
+HINT
+animals(later)
+
+flag
+TARGET_LAT = 1.404639   # 1°24'16.7"N
+TARGET_LNG = 103.795528 # 103°47'43.9"E

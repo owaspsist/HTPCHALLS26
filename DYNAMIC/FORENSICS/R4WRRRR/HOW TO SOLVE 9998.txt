@@ -1,0 +1,20 @@
+The author claims the answer isn't in the metadata.
+The author is a liar.
+Find the exact coordinates represented in the image. Use the visual clues to identify the location and report its precise latitude and longitude.
+
+
+--answer--
+
+
+exiftool chal.png
+Comment                         : ///dualist.malting.font, just_give_up
+
+https://what3words.com/dualist.malting.font
+
+after analyzing the image they will fine 
+
+SAFARI WORLD Ibra
+
+22.630150, 58.539750
+
+flags

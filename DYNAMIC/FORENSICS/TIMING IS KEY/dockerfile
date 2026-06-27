@@ -1,0 +1,16 @@
+FROM python:3.10-slim
+
+RUN useradd -m -s /bin/bash ctf
+
+WORKDIR /challenge
+
+COPY challenge.py /challenge/challenge.py
+COPY start.sh /start.sh
+
+RUN chmod +x /start.sh && \
+    chown -R root:ctf /challenge && \
+    chmod 750 /challenge/challenge.py
+
+EXPOSE 9996
+
+CMD ["/start.sh"]

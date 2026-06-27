@@ -1,0 +1,30 @@
+--QUESTION--
+
+I came across a photo of a really nice café in a beautiful location. At first glance it just looks like a travel picture, but there’s actually a clue hidden somewhere in it that leads to a specific place.
+
+You may hit a roadblock while investigating, and to get past it you’ll need the name of the location where the photo was taken. Once you find it, look for a place where visitors have shared their thoughts and experiences. You could find something hidden there, waiting to be discovered.
+
+Happy hunting!
+-blu3ky
+
+
+
+
+--HOW TO SOLVE--
+
+steghide extract -sf view.jpg
+
+pass - jebel_shams
+
+MjOwMTInNDQuMSJOIDU3sDEyJzEyLjgiRQ==
+
+from base 64
+23°12'44.1"N 57°12'12.8"E
+
+in google maps reviews
+https://maps.app.goo.gl/ZJvZBAZrp5UUfpTRA
+ie hg he id hg if gv hn hg ik dt ec ht ef hu gv eb ie gv ic ee ef hb he ee hh ig eb
+
+secret_key- 0m4n_1s_p34ac3fu1
+
+flag

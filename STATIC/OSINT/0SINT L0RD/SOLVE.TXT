@@ -1,0 +1,14 @@
+A cybercrime investigation has reached a dead end after the suspect wiped every device they owned. Despite their efforts, investigators recovered a single lead from a browser artifact:
+
+barjun428@gmail.com
+
+The suspect overlooked several publicly accessible traces tied to their online identity. Starting from the recovered email address, follow the digital trail and uncover the account's hidden breadcrumbs. Somewhere along the way, you'll need to determine how many diamonds are part of the account's identity, identify the location that received the account's mid-rated Google Maps review, and recover the account's unique Google numeric ID.
+
+Combine these three findings to complete the investigation.
+format - warCTF{999_place_name_7836582735629356986259328}
+
+--flag--
+
+visit epieos.com
+
+warCTF{70_Paravasa_Ulagam_111557646624557982826}

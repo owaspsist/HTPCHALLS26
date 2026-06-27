@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Preview</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <div class="navbar-dock">
+        <span class="dock-title">Preview Environment Active</span>
+    </div>
+
+    <div class="main-viewport">
+        <div class="panel">
+            <h2>Deployment Visual Output</h2>
+            <div class="subtitle">Verify the markup layout rendering profile context below before production routing.</div>
+            
+            <div class="render-container">
+                {{ markup | safe }}
+            </div>
+
+            <button class="action-btn" id="verifyBtn" onclick="dispatchVerification()">Submit Pipeline to Integration Admin</button>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+    <script>
+        function dispatchVerification() {
+            const btn = document.getElementById("verifyBtn");
+            btn.disabled = true;
+            btn.innerText = "Dispatching Reviewer...";
+            
+            fetch("/verify/{{ template_id }}", { method: 'POST' })
+                .then(r => r.json())
+                .then(data => {
+                    alert(data.status || data.error);
+                    btn.disabled = false;
+                    btn.innerText = "Submit Pipeline to Integration Admin";
+                });
+        }
+    </script>
+</body>
+</html>
