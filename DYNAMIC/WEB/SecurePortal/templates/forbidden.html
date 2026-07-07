@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Forbidden - SecurePortal{% endblock %}
+{% block content %}
+  <h1>403 Forbidden</h1>
+  <p class="muted">You do not have administrator privileges.</p>
+  <div class="links">
+    <a href="{{ url_for('login') }}">Back to login</a>
+  </div>
+{% endblock %}

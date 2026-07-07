@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Login - SecurePortal{% endblock %}
+{% block content %}
+  <h1>SecurePortal Login</h1>
+  <p class="muted">Sign in as a regular user. No password required for this demo tier.</p>
+  <form method="POST" action="{{ url_for('login') }}">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="guest" autocomplete="off">
+    <button type="submit">Log in</button>
+  </form>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  <div class="links">
+    <a href="{{ url_for('publickey') }}">View signing public key</a> &middot;
+    <a href="{{ url_for('admin') }}">Admin area</a>
+  </div>
+{% endblock %}

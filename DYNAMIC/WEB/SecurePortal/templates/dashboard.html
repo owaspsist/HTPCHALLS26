@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - SecurePortal{% endblock %}
+{% block content %}
+  <h1>Welcome, {{ user }}</h1>
+  <p class="muted">You are logged in with role: <code>{{ role }}</code></p>
+  <p class="muted">Your session token is stored in the <code>token</code> cookie.</p>
+  <div class="links">
+    <a href="{{ url_for('admin') }}">Go to Admin Area</a> &middot;
+    <a href="{{ url_for('publickey') }}">View signing public key</a> &middot;
+    <a href="{{ url_for('logout') }}">Log out</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Admin - SecurePortal{% endblock %}
+{% block content %}
+  <h1>Admin Control Panel</h1>
+  <p class="muted">Welcome, {{ user }}. You have administrator privileges.</p>
+  <div class="flag">{{ flag }}</div>
+  <div class="links">
+    <a href="{{ url_for('dashboard') }}">Back to dashboard</a>
+  </div>
+{% endblock %}
